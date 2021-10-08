@@ -13,6 +13,16 @@ pipeline {
         echo 'building'
                    
     }
+    stage("testing") {
+    parallel {
+        stage("unit tests") {
+        steps {
+        echo "testing..."
+        
+}
+}
+}
+}
 }
 }
 }
