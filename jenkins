@@ -1,28 +1,29 @@
-pipeline{
-    agent{
-        label any
-    }
-    stages{
-        stage("building"){
-            steps{
-                echo "building..."
-            }
+pipeline { 
+  
+   agent any
+
+   stages {
+   
+     stage('Install Dependencies') { 
+         
+        steps { 
+           sh 'npm install' 
         }
-        stage("Parallel testing"){
-            parallel{
-                stage("testing"){
-                    steps{
-                        echo "testing..."
-                    }
-                }
-                stage("Integration testing"){
-                    steps{
-                        echo "testing....."
-                    }
-                }
-                }
-                
-          }
-        
+     }
+     
+     stage('Test') { 
+        steps { 
+           sh 'echo "testing application..."'
         }
-        }
+      }
+
+         stage("Deploy application") { 
+         steps { 
+           sh 'echo "deploying application..."'
+         }
+
+     }
+  
+   	}
+
+   }
