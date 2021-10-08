@@ -25,7 +25,7 @@ pipeline{
                 stage("Test"){
                     
                     steps{
-                        JUNIT 
+                        echo "JUNIT" 
                     }
                 }
             }
