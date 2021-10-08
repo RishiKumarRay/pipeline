@@ -1,28 +1,26 @@
-pipeline {
-    agent any
-
-    stages {
-        stage('Hello') {
-            steps {
-                echo 'Hello World'
-            }
-    
-        }
-     stage('Build'){
-    steps {
-        echo 'building'
-                   
+pipeline{
+    agent{
+        label 'Slave1'
     }
-    stage("testing") {
-    parallel {
-        stage("unit tests") {
-        steps {
-        echo "testing..."
+    stages{
+        stage("building"){
+            steps{
+                echo "building..."
+            }
+        }
+        stage("Parallel testing"){
+            parallel{
+                stage("testing"){
+                    steps{
+                        echo "testing..."
+                    }
+                }
+                stage("Integration testing"){
+                    steps{
+                        echo "testing....."
+                    }
+                }
+                }
+                
+          }
         
-}
-}
-}
-}
-}
-}
-}
