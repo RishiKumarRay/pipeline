@@ -5,7 +5,7 @@ pipeline{
     stages{
         stage("Checkout scm"){
             steps{
-                git clone.....
+                echo "git clone....."
             }
         }
         stage("Parallel Build"){
